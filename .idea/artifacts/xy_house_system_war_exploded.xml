@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="xy_house_system:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/xy_house_system_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="xy_house_system" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
