@@ -14,5 +14,5 @@ public interface BaseService<T> {
     //添加记录
     boolean add(Map map);
     //返回list实体类
-    List<T>queryRecordsListDto(Object[] objects,Map<String,Object>pageMap,Class clazz);
+    List<T>queryRecordsListDto(Object[] objects,Map<String,Object>pageMap);
 }

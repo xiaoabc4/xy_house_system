@@ -2,14 +2,14 @@ package com.xy.entity;
 
 public class Myjs extends Pagedto{
 
-    int jid;//角色编号
+    Long jid;//角色编号
     String jname;//角色名称
 
-    public int getJid() {
+    public Long getJid() {
         return jid;
     }
 
-    public void setJid(int jid) {
+    public void setJid(Long jid) {
         this.jid = jid;
     }
 
