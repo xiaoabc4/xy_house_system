@@ -10,9 +10,9 @@ public interface BaseService<T> {
     Integer queryRecordsCount();
 
     //查询记录
-    List<Map<String,Object>> queryRecordsList(Object[] objects, Map<String,Object> pageMap);
+    List<Map<String,Object>> queryRecordsList(Object[] objects, Map<String,Object> pageMap,Class clazz);
     //添加记录
     boolean add(Map map);
     //返回list实体类
-    List<T>queryRecordsListDto(Object[] objects,Map<String,Object>pageMap);
+    List<T>queryRecordsListDto(Object[] objects,Map<String,Object>pageMap,Class clazz);
 }

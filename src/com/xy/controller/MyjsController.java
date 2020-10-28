@@ -34,7 +34,7 @@ public class MyjsController extends SystemBaseController{
         int next = page.getNext(current,allpages);
 
         Object[] objects = new Object[]{};
-        List<Myjs> arx = myjsService.queryRecordsListDto(objects, pageMap);
+        List<Myjs> arx = myjsService.queryRecordsListDto(objects, pageMap,Myjs.class);
         for (int i = 0; i < arx.size(); i++) {
             Myjs d = arx.get(i);
             Myjs dto = new Myjs();
