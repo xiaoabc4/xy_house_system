@@ -21,6 +21,7 @@ public class MyDept {
     }
 
     public String getPname() {
+
         return pname;
     }
 

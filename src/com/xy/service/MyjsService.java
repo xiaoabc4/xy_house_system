@@ -26,7 +26,7 @@ public class MyjsService implements BaseService{
     @Override
     public List<Map<String, Object>> queryRecordsList(Object[] objects, Map pageMap,Class clazz) {
 
-        return myjsDao.queryRecords(myjsDao.getQueryAllsqlCount(),pageMap,objects,Myjs.class);
+        return null;
     }
 
     @Override
