@@ -31,8 +31,6 @@ public abstract class BaseDao<T> {
             }
             //设置执行参数
             if (objs !=null && objs.length>=1){
-
-
                 for (int i=0; i<objs.length; i++){
                     pre.setObject(i+1,objs[i]);
                 }
@@ -72,7 +70,7 @@ public abstract class BaseDao<T> {
 
             //这个方法会遍历Map<key,value>中的key，如果bean中有这个属性，就把这个key对应的value值赋给bran的属性
             BeanUtils.populate(bean,map);
-            System.out.println(bean);
+
         }catch (Exception e){
             e.printStackTrace();
         }

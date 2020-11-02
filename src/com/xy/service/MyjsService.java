@@ -35,11 +35,6 @@ public class MyjsService implements BaseService{
         return false;
     }
 
-    public static void main(String[] args) {
-        MyjsService myjsService = new MyjsService();
-        Object[] obj = new Object[]{};
-        Map page = new HashMap();
-        List rs = myjsService.queryRecordsListDto(obj,page,Myjs.class);
-    }
+
 
 }

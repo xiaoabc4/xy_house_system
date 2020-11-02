@@ -35,11 +35,4 @@ public class MyempService implements BaseService {
         return null;
     }
 
-
-    public static void main(String[] args) {
-        MyempService myempService = new MyempService();
-        Object[] obj = new Object[]{};
-        Map page = new HashMap();
-        List rs = myempService.queryRecordsListDto(obj,page,MyEmp.class);
-    }
 }

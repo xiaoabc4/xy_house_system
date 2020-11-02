@@ -33,10 +33,5 @@ public class MysortService implements BaseService{
         return null;
     }
 
-    public static void main(String[] args) {
-        MysortService mysortService = new MysortService();
-        Object[] obj = new Object[]{};
-        Map page = new HashMap();
-        List rs = mysortService.queryRecordsListDto(obj,page, Mysort.class);
-    }
+
 }

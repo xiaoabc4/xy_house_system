@@ -7,7 +7,7 @@ public class MyEmpDaoImpl extends SystemDao {
     private  static  String queryAllsqlCount=null;
 
     public static String getQueryAllsql() {
-        queryAllsql="SELECT * FROM MYJS J,MYEMP E,MYDEPT D WHERE J.JID=E.EID AND E.PID=D.PID";
+        queryAllsql="SELECT * FROM MYJS J,MYEMP E,MYDEPT D WHERE J.JID=E.JID AND E.PID=D.PID";
         return queryAllsql;
     }
 
