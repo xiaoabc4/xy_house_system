@@ -3,9 +3,11 @@ package com.xy.controller;
 import com.xy.entity.MyEmp;
 import com.xy.service.MyempService;
 import com.xy.utils.JacksonUtils;
+import com.xy.utils.MySession;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -18,22 +20,10 @@ public class Editpsw extends SystemBaseController{
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         setAccessControlAllow(resp);
-        String oldpsw = req.getParameter("oldpsw");
-        String psw = req.getParameter("psw");
-        MyempService myempService = new MyempService();
-        Object[] obj = new Object[]{};
-        Map page = new HashMap();
-        List<MyEmp> rs = myempService.queryRecordsListDto(obj, page, MyEmp.class);
 
-        resp.getWriter().write(JacksonUtils.obj2json(0));
-        for (int i = 0; i <rs.size(); i++) {
-            if (rs.get(i).getEpsw().equals(oldpsw) ) {
+        MyEmp myEmp = (MyEmp) req.getSession().getAttribute(MySession.usersession);
 
-                resp.getWriter().write(JacksonUtils.obj2json(1));
-            } else {
-                continue;
-            }
-        }
+        System.out.println(myEmp);
     }
     protected  void  setAccessControlAllow(HttpServletResponse response){
         /*允许跨域的主机地址*/
