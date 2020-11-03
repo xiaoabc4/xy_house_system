@@ -4,6 +4,9 @@ import javax.servlet.*;
 import javax.servlet.http.HttpServlet;
 import java.io.IOException;
 
+/**
+ * 拦截器
+ */
 public class MyFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {

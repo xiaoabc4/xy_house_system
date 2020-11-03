@@ -17,6 +17,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 登入
+ */
 @WebServlet("/login")
 public class Login extends SystemBaseController {
     @Override
@@ -30,12 +33,11 @@ public class Login extends SystemBaseController {
         Object[] obj = new Object[]{};
         Map page = new HashMap();
         List<MyEmp> rs = myempService.queryRecordsListDto(obj, page, MyEmp.class);
-
+        resp.setContentType("application/json;charset=utf-8");
         resp.getWriter().write(JacksonUtils.obj2json(0));
         for (int i = 0; i <rs.size(); i++) {
             if (rs.get(i).getEname().equals(name) && rs.get(i).getEpsw().equals(psw)) {
 
-                req.getSession().setAttribute(MySession.usersession,rs.get(i));
                 resp.getWriter().write(JacksonUtils.obj2json(1));
                 break;
             } else {
@@ -48,16 +50,5 @@ public class Login extends SystemBaseController {
 
     }
 
-    protected  void  setAccessControlAllow(HttpServletResponse response){
-        /*允许跨域的主机地址*/
-        response.setHeader("Access-Control-Allow-Origin","*");
-        /*允许跨域的请求 GET POST HEAD 等*/
-        response.setHeader("Access-Control-Allow-Methods","*");
-        /*重新预检验跨域的缓存时间*/
-        response.setHeader("Access-Control-Max-Age","1800");
-        /*允许跨域的请求头*/
-        response.setHeader("Access-Control-Allow-Headers","*");
-        /*是否携带COOKIE*/
-        response.setHeader("Access-Control-Allow-Credentials","true");
-    }
+
 }

@@ -16,6 +16,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 岗位信息
+ * */
 @WebServlet("/myjs")
 public class MyjsController extends SystemBaseController{
     MyjsService myjsService =  new MyjsService();
@@ -55,16 +58,5 @@ public class MyjsController extends SystemBaseController{
         //将数据写入流中
         resp.getWriter().write(jsonStr);
     }
-    protected  void  setAccessControlAllow(HttpServletResponse response){
-        /*允许跨域的主机地址*/
-        response.setHeader("Access-Control-Allow-Origin","*");
-        /*允许跨域的请求 GET POST HEAD 等*/
-        response.setHeader("Access-Control-Allow-Methods","*");
-        /*重新预检验跨域的缓存时间*/
-        response.setHeader("Access-Control-Max-Age","1800");
-        /*允许跨域的请求头*/
-        response.setHeader("Access-Control-Allow-Headers","*");
-        /*是否携带COOKIE*/
-        response.setHeader("Access-Control-Allow-Credentials","true");
-    }
+
 }
