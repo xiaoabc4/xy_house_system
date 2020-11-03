@@ -48,4 +48,6 @@ public abstract  class SystemDao extends BaseDao{
      * @desc 获取总记录数
      */
 
+
+
 }

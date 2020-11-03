@@ -1,7 +1,7 @@
 package com.xy.entity;
 
 public class Custom extends Pagedto{
-   String cname; //客户姓名
+    String cname; //客户姓名
     String csex;//客户性别
     String ctel; //电话
     String ctel1;//备用电话

@@ -2,7 +2,9 @@ package com.xy.service;
 
 import com.xy.dao.impl.CustomDaoImpl;
 import com.xy.entity.Custom;
+import com.xy.entity.Myjs;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -29,12 +31,21 @@ public class CustomService implements BaseService{
     }
 
     @Override
-    public List queryRecordsListDto(Object[] objects, Map pageMap, Class clazz) {
-        return dao.queryBaseRecords(dao.getQueryAllsqlCount(),objects,pageMap,Custom.class);
+    public List<Custom> queryRecordsListDto(Object[] objects, Map pageMap, Class clazz) {
+        return  dao.queryBaseRecords(dao.getQueryAllsql(),objects,pageMap, Custom.class);
     }
 
     @Override
     public List<Map<String, Object>> queryRecordsList(Object[] objects, Map pageMap, Class clazz) {
         return null;
+    }
+
+    public static void main(String[] args) {
+        CustomService customService = new CustomService();
+        CustomDaoImpl dao = new CustomDaoImpl();
+        Object[] objects = null;
+        Map pageMap = new HashMap();
+        List<Custom> q = customService.queryRecordsListDto(objects,pageMap,Custom.class);
+        System.out.println(q);
     }
 }

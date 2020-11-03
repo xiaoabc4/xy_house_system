@@ -27,16 +27,12 @@ public class CustomController extends SystemBaseController{
         String ctel = req.getParameter("cus.ctel");
         String ccard = req.getParameter("cus.ccard");
         String ctel1 = req.getParameter("cus.ctel1");
-
-        System.out.println(cname);
-
         Custom custom = new Custom();
         custom.setCcard(ccard);
         custom.setCname(cname);
         custom.setCtel(ctel);
         custom.setCtel1(ctel1);
         custom.setCsex(csex);
-        System.out.println(custom);
         if (customService.addCustom(custom)){
             jsonStr="1";
         }else {

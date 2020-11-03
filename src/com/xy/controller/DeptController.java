@@ -56,7 +56,6 @@ public class DeptController extends SystemBaseController{
         //json数据
         jsonStr = JacksonUtils.obj2json(resultList);
         String result="jsonStr="+jsonStr;
-        System.out.println(result);
         //将数据写入流中
         resp.getWriter().write(jsonStr);
 

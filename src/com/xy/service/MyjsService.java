@@ -1,11 +1,9 @@
 package com.xy.service;
 
 import com.xy.dao.impl.MyjsDaoImpl;
-import com.xy.entity.Myjs;
-import com.xy.utils.NumberUtil;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import com.xy.entity.Myjs;
+
 import java.util.List;
 import java.util.Map;
 
@@ -35,6 +33,12 @@ public class MyjsService implements BaseService{
         return false;
     }
 
-
+    public boolean addlist(Myjs myjs){
+        if (myjs==null){
+            return  false;
+        }else {
+            return myjsDao.addlist(myjs);
+        }
+    }
 
 }

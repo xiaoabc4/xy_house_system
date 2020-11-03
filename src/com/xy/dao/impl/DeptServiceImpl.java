@@ -1,6 +1,8 @@
 package com.xy.dao.impl;
 
+import com.xy.entity.Custom;
 import com.xy.entity.MyDept;
+import com.xy.utils.JdbcUtils;
 import com.xy.utils.NumberUtil;
 
 import java.util.ArrayList;
@@ -18,6 +20,20 @@ public class DeptServiceImpl {
     DeptSystemDaoImpl deptSystemDao=new DeptSystemDaoImpl();
     private  static  String queryAllsql="select * from mydept where 1 = 1";
     private  static  String queryAllsqlCount="select count(1) from mydept";
+    private  static  String addsql=null;
+    public String getAddsql(){
+        return addsql="insert into mydept(PID,PNAME,PREMARK,PFLAG)"+" value (null,?,?,0)";
+    }
+    //添加客户记录
+    public boolean addlist(MyDept myDept){
+        int len  =2;
+        Object[] objects = new Object[len];
+        objects[0] = myDept.getPname();
+        objects[1] = myDept.getPremark();
+
+        return JdbcUtils.update(getAddsql(),objects);
+    }
+
     public  List<MyDept>queryRecords(Object[] objs,Map<String,Object>pageMap){
         String sql="select * from mydept";
         return  dao.queryBaseRecords(sql,null,pageMap,MyDept.class);
@@ -32,7 +48,7 @@ public class DeptServiceImpl {
     }
     private List<Map<String, Object>> queryRecordsList(Object[] objects, Map<String, Object> pageMap) {
         List<Map<String,Object>>list=deptSystemDao.queryRecords(queryAllsql,pageMap,objects);
-        System.out.println("List<Map<String,Object>>queryRecords(Object[]objs)="+list);
+
         return list;
     }
     public List<MyDept>queryRecordsListDto(Object[] objects,Map<String,Object>pageMap){
@@ -53,14 +69,6 @@ public class DeptServiceImpl {
         }
         return  resultList;
     }
-    public static void main(String[] args) {
-        DeptServiceImpl deptService =new DeptServiceImpl();
-        Object[]objects=new Object[]{};
-        Map<String,Object>pageMap=new HashMap<String, Object>();
-        //List<Map<String,Object>> queryList=deptService.queryRecordsList(objects,pageMap);
-        List<MyDept> resultList=deptService.queryRecordsListDto(objects,pageMap);
-        System.out.println("resultList="+resultList);
-        //System.out.println("queryList="+queryList);
-    }
+
 
 }
