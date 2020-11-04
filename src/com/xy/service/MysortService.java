@@ -33,5 +33,11 @@ public class MysortService implements BaseService{
         return null;
     }
 
-
+    public boolean addlist(Mysort mysort){
+        if (mysort==null){
+            return  false;
+        }else {
+            return mysortDao.addlist(mysort);
+        }
+    }
 }

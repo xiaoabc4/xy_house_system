@@ -1,6 +1,7 @@
 package com.xy.service;
 
 import com.xy.dao.impl.MyareaDaoImpl;
+import com.xy.entity.Custom;
 import com.xy.entity.Myarea;
 import com.xy.entity.Myjs;
 
@@ -33,4 +34,12 @@ public class MyareaService  implements BaseService{
         return null;
     }
 
+
+    public boolean addlist(Myarea myarea){
+        if (myarea==null){
+            return  false;
+        }else {
+            return myareaDao.addlist(myarea);
+        }
+    }
 }

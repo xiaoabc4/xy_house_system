@@ -21,7 +21,10 @@ public class CustomqueryController extends SystemBaseController{
     CustomService customService = new CustomService();
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        query(req,resp);
+    }
 
+    public void query (HttpServletRequest req, HttpServletResponse resp) throws IOException {
         //定义json数据变量
         setAccessControlAllow(resp);
         String jsonStr = null;
@@ -61,6 +64,7 @@ public class CustomqueryController extends SystemBaseController{
 
         //将数据写入流中
         resp.getWriter().write(jsonStr);
+
     }
     }
 
