@@ -17,6 +17,20 @@ public class Myhouse extends Pagedto{
     private  float hmoney;
     private  long hflagnumber; //1代表正在出租0---没有出租
 
+    /**
+     * 		  "house.hwf":hwf,
+     * 		  "house.hdx":hdx,
+     * 		  "house.hsf":hsf,
+     * 		  "house.hmq":hmq,
+     * 		  "house.dkd":dkd,
+     * 		  "house.skd":skd,
+     * 		  "house.mkd":mkd,
+     * 		  "house.hjp":hjp,
+     * 		  "house.hremark":hremark
+     *
+     * @return
+     */
+
     @Override
     public String toString() {
         return "Myhouse{" +

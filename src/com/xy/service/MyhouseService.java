@@ -3,6 +3,7 @@ package com.xy.service;
 import com.xy.dao.impl.MyhouseDaoImpl;
 import com.xy.entity.Myarea;
 import com.xy.entity.Myhouse;
+import com.xy.entity.Myjs;
 
 import java.util.List;
 import java.util.Map;
@@ -27,5 +28,13 @@ public class MyhouseService implements BaseService{
     @Override
     public List<Map<String, Object>> queryRecordsList(Object[] objects, Map pageMap, Class clazz) {
         return null;
+    }
+
+    public boolean addlist(Myhouse myhouse){
+        if (myhouse==null){
+            return  false;
+        }else {
+            return myhouseDao.addlist(myhouse);
+        }
     }
 }
