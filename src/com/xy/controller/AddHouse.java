@@ -5,11 +5,13 @@ import com.xy.entity.Myhouse;
 import com.xy.service.MyhouseService;
 import com.xy.utils.JacksonUtils;
 
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.InputStream;
 
 @WebServlet("/addhouse")
 public class AddHouse extends SystemBaseController{
@@ -20,24 +22,32 @@ public class AddHouse extends SystemBaseController{
         setAccessControlAllow(resp);
         String jsonStr = null;
         //获取参数值
-        String sname = req.getParameter("house.sname");
-        String aname = req.getParameter("house.aname");
+//        int sid = Integer.parseInt(req.getParameter("house.sid"));
+//        int aid = Integer.parseInt(req.getParameter("house.aid"));
+//        int hmoney = Integer.parseInt(req.getParameter("house.hmoney"));
+        int sid =2;
+        int aid = 3;
+        int hmoney = 1000;
+        System.out.println(req.getParameter("house.sid"));
+
+
         String haddress = req.getParameter("house.haddress");
         String hfh = req.getParameter("house.hfh");
         String hhx = req.getParameter("house.hhx");
         String hmj = req.getParameter("house.hmj");
         String hcx = req.getParameter("house.hcx");
-        String hmoney = req.getParameter("house.hmoney");
+
 
         Myhouse myhouse = new Myhouse();
-        myhouse.setSname(sname);
-        myhouse.setAname(aname);
+        myhouse.setSid(sid);
+        myhouse.setAid(aid);
+        myhouse.setHmoney(hmoney);
         myhouse.setHaddress(haddress);
         myhouse.setHfh(hfh);
         myhouse.setHhx(hhx);
         myhouse.setHmj(hmj);
         myhouse.setHcx(hcx);
-        myhouse.setHmoney(1000);
+
 
 
         if (service.addlist(myhouse)){

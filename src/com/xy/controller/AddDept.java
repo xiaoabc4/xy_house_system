@@ -25,7 +25,7 @@ public class AddDept extends SystemBaseController{
         MyDept myDept = new MyDept();
         myDept.setPname(pname);
         myDept.setPremark(premark);
-        System.out.println(myDept);
+
         if (service.addlist(myDept)){
             jsonStr="1";
         }else {

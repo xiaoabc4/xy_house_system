@@ -2,7 +2,7 @@ package com.xy.dao.impl;
 
 import com.xy.dao.SystemDao;
 import com.xy.entity.Myhouse;
-import com.xy.entity.Myjs;
+
 import com.xy.utils.JdbcUtils;
 
 public class MyhouseDaoImpl extends SystemDao {
@@ -12,7 +12,7 @@ public class MyhouseDaoImpl extends SystemDao {
     private  static  String addsql=null;
 
     public String getAddsql(){
-        return addsql="insert  into myhouse(HID,SID,AID,HADDRESS,HFH,HHX,HMJ,HCX,HMONEY,HWF,HDX,HSF,HMQ,DKD,SKD,MKD,HJP,HREMARK,HIMG,HFLAG)" + " values (null,null,null,?,?,?,?,?,?,null,null,null,null,null,null,null,null,null,null,NULL)";
+        return addsql="insert  into myhouse(HID,SID,AID,HADDRESS,HFH,HHX,HMJ,HCX,HMONEY,HWF,HDX,HSF,HMQ,DKD,SKD,MKD,HJP,HREMARK,HIMG,HFLAG)" + " values (null,?,?,?,?,?,?,?,?,null,null,null,null,null,null,null,null,null,null,null)";
     }
 
     public static String getQueryAllsql() {
@@ -40,21 +40,17 @@ public class MyhouseDaoImpl extends SystemDao {
          *     private  String hcx;
          *     private  float hmoney;
          */
-        int len  =10;
+        int len  =8;
         Object[] objects = new Object[len];
-
-//        objects[0] = myhouse.getAname();
-        objects[0] = myhouse.getHaddress();
-        objects[1] = myhouse.getHcx();
-        objects[2] = myhouse.getHfh();
-        objects[3] = myhouse.getHflagnumber();
+     //   SID,AID,HADDRESS,HFH,HHX,HMJ,HCX,HMONEY
+        objects[0] = myhouse.getSid();
+        objects[1] = myhouse.getAid();
+        objects[2] = myhouse.getHaddress();
+        objects[3] = myhouse.getHfh();
         objects[4] = myhouse.getHhx();
-        objects[5] = myhouse.getHid();
-        objects[6] = myhouse.getHmj();
+        objects[5] = myhouse.getHmj();
+        objects[6] = myhouse.getHcx();
         objects[7] = myhouse.getHmoney();
-//        objects[9] = myhouse.getSname();
-
-
 
         return JdbcUtils.update(getAddsql(),objects);
     }
