@@ -1,7 +1,8 @@
 package com.xy.controller;
 
-import com.xy.dao.impl.DeptServiceImpl;
-import com.xy.entity.MyDept;
+import com.xy.entity.Mybiao;
+import com.xy.entity.Mydj;
+import com.xy.service.MybiaoService;
 import com.xy.utils.JacksonUtils;
 import com.xy.utils.NumberUtil;
 import com.xy.utils.PageUtils;
@@ -15,14 +16,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-/**
- * 部门信息控制器
- */
-@WebServlet("/dept")
-public class DeptController extends SystemBaseController{
-    //初始化service
-    private DeptServiceImpl service = new DeptServiceImpl();
-
+@WebServlet("/mybiao")
+public class MybiaoController extends SystemBaseController{
+    MybiaoService service = new MybiaoService();
+    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //定义json数据变量
         setAccessControlAllow(resp);
@@ -37,27 +34,29 @@ public class DeptController extends SystemBaseController{
         int next = page.getNext(current,allpages);
 
         Object[] objects = new Object[]{};
-        List<MyDept> arx = service.queryRecordsListDto(objects, pageMap);
-        for (int i = 0; i < arx.size(); i++) {
-            MyDept d = arx.get(i);
-            MyDept dto = new MyDept();
-            dto.setPid(d.getPid());
-            dto.setPname(d.getPname());
-            dto.setPremark(d.getPremark());
-            dto.setPflag(d.getPflag());
-            dto.setAllcount(allcount);
-            dto.setAllpages(allpages);
-            dto.setCurrent(current);
-            dto.setNext(next);
-            dto.setUp(up);
-            resultList.add(dto);
+        List<Mybiao> arx = service.queryRecordsListDto(objects, pageMap,Mybiao.class);
+        for (int i = 0;i<arx.size();i++){
+            Mybiao d = arx.get(i);
+            Mybiao mybiao = new Mybiao();
+            mybiao.setBid(d.getBid());
+            mybiao.setHaddress(d.getHaddress());
+            mybiao.setHfh(d.getHfh());
+            mybiao.setDkd(d.getDkd());
+            mybiao.setSkd(d.getSkd());
+            mybiao.setMkd(d.getMkd());
+            mybiao.setMtime(d.getMtime());
+            mybiao.setErealname(d.getErealname());
+            mybiao.setAllcount(allcount);
+            mybiao.setAllpages(allpages);
+            mybiao.setCurrent(current);
+            mybiao.setNext(next);
+            mybiao.setUp(up);
+            resultList.add(mybiao);
         }
         resp.setContentType("application/json;charset=utf-8");
         //json数据
         jsonStr = JacksonUtils.obj2json(resultList);
         //将数据写入流中
         resp.getWriter().write(jsonStr);
-
     }
-
 }
