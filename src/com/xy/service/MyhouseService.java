@@ -23,9 +23,9 @@ public class MyhouseService implements BaseService{
     @Override
     public List queryRecordsListDto(Object[] objects, Map pageMap, Class clazz) {
         if(objects !=null && objects.length>=1){
-            return myhouseDao.queryBaseRecords(myhouseDao.getQueryAllsql() +" and aid = ?",null,pageMap, Myhouse.class);
+            return myhouseDao.queryBaseRecords(myhouseDao.getQueryAllsql() +" and h.Aid = ?",objects,pageMap, Myhouse.class);
         }else {
-            return myhouseDao.queryBaseRecords(myhouseDao.getQueryAllsql(),objects,pageMap, Myhouse.class);
+            return myhouseDao.queryBaseRecords(myhouseDao.getQueryAllsql(),null,pageMap, Myhouse.class);
         }
 
     }
