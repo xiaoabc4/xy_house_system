@@ -3,6 +3,7 @@ package com.xy.controller;
 import com.xy.utils.Pages;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,6 +21,7 @@ public abstract class SystemBaseController extends HttpServlet {
     protected int current;//当前页
     protected int mypages = Constants.PAGE_SIZE_DEFAULT;//页面默认显示·10条记录
     protected List resultList;//结果集
+
 
     /**
      * 重写doget，调用dopost

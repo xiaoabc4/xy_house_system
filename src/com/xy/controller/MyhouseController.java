@@ -35,9 +35,13 @@ public class MyhouseController extends SystemBaseController{
         current = NumberUtil.getIntegerValue(pageMap.get("currPage"),1);
         int up = page.getUp(current);
         int next = page.getNext(current,allpages);
-        long aid =NumberUtil.getLong(req.getParameter("aid"),1);
-        Object[] objects = new Object[1];
-       objects[0]=aid;
+        long aid =NumberUtil.getLong(req.getParameter("aid"),0);
+        Object[] objects = new Object[]{};
+        if (aid>=1){
+            objects = new Object[1];
+            objects[0]=aid;
+        }
+
         List<Myhouse> arx = myhouseService.queryRecordsListDto(objects, pageMap, Myhouse.class);
         for (int i = 0; i < arx.size(); i++) {
             Myhouse d = arx.get(i);

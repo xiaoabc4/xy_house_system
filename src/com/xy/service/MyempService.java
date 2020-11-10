@@ -3,7 +3,6 @@ package com.xy.service;
 import com.xy.dao.impl.MyEmpDaoImpl;
 import com.xy.entity.MyEmp;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -33,6 +32,13 @@ public class MyempService implements BaseService {
     public List<Map<String, Object>> queryRecordsList(Object[] objects, Map pageMap, Class clazz) {
 
         return null;
+    }
+    public boolean uplist(Map map) {
+        if (map==null){
+            return false;
+        }else {
+            return myEmpDao.uplist(map);
+        }
     }
 
 }
