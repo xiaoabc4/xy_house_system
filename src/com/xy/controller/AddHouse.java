@@ -19,16 +19,13 @@ public class AddHouse extends SystemBaseController{
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //定义json数据变量
-        setAccessControlAllow(resp);
+        setAccessControlAllow(resp,req);
         String jsonStr = null;
         //获取参数值
-//        int sid = Integer.parseInt(req.getParameter("house.sid"));
-//        int aid = Integer.parseInt(req.getParameter("house.aid"));
-//        int hmoney = Integer.parseInt(req.getParameter("house.hmoney"));
-        int sid =2;
-        int aid = 3;
-        int hmoney = 1000;
-        System.out.println(req.getParameter("house.sid"));
+        int sid = Integer.parseInt(req.getParameter("house.sid"));
+        int aid = Integer.parseInt(req.getParameter("house.aid"));
+        int hmoney = Integer.parseInt(req.getParameter("house.hmoney"));
+
 
 
         String haddress = req.getParameter("house.haddress");

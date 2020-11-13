@@ -23,7 +23,7 @@ public class DjrzController extends SystemBaseController {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //定义json数据变量
-        setAccessControlAllow(resp);
+        setAccessControlAllow(resp,req);
         String jsonStr = null;
         resultList = new ArrayList();
         Map<String, Object> pageMap = PageUtils.getPageParams(req);
@@ -33,8 +33,12 @@ public class DjrzController extends SystemBaseController {
         current = NumberUtil.getIntegerValue(pageMap.get("currPage"),1);
         int up = page.getUp(current);
         int next = page.getNext(current,allpages);
-
+        long hid =NumberUtil.getLong(req.getParameter("hid"),0);
         Object[] objects = new Object[]{};
+        if(hid>=1){
+            objects = new Object[1];
+            objects[0] = hid;
+        }
         List<Mydj> arx = service.queryRecordsListDto(objects, pageMap,Mydj.class);
         for (int i = 0; i < arx.size(); i++) {
             Mydj d = arx.get(i);

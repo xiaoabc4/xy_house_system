@@ -20,7 +20,8 @@ public class MyEmpDaoImpl extends SystemDao {
     }
 
     public String getAddsql(){
-        return addsql="insert into mycus(CID,CNAME,CSEX,CTEL,CTEL1,CCARD)"+" value (null,?,?,?,?,?)";
+        return addsql="insert into myemp(EID,PID,JID,ENAME,EPSW,EREALNAME,ETEL,EADDRESS,EFLAG,EREMARK)"
+                +" value (null,?,?,?,?,?,?,?,0,?)";
     }
 
     public static String getQueryAllsql() {
@@ -40,5 +41,18 @@ public class MyEmpDaoImpl extends SystemDao {
 
         return JdbcUtils.update(updatesql(),objects);
     }
+    public boolean add(Map map) {
 
+        int length = 8;
+        Object[] objects = new Object[length];
+        objects[0] = map.get("pid");
+        objects[1] = map.get("jid");
+        objects[2] = map.get("ename");
+        objects[3] = map.get("epsw");
+        objects[4] = map.get("erealname");
+        objects[5] = map.get("etel");
+        objects[6] = map.get("eaddress");
+        objects[7] = map.get("eremark");
+        return JdbcUtils.update(getAddsql(),objects);
+    }
 }

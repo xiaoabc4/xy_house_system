@@ -16,7 +16,11 @@ public class MyempService implements BaseService {
 
     @Override
     public boolean add(Map map) {
-        return false;
+        if (map==null){
+            return false;
+        }else {
+            return myEmpDao.add(map);
+        }
     }
 
     @Override

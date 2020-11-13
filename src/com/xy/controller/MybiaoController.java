@@ -22,7 +22,7 @@ public class MybiaoController extends SystemBaseController{
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //定义json数据变量
-        setAccessControlAllow(resp);
+        setAccessControlAllow(resp,req);
         String jsonStr = null;
         resultList = new ArrayList();
         Map<String, Object> pageMap = PageUtils.getPageParams(req);

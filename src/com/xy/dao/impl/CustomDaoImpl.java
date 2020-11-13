@@ -30,10 +30,10 @@ public class CustomDaoImpl extends BaseDao {
         int len  =5;
         Object[] objects = new Object[len];
         objects[0] = custom.getCname();
-        objects[1] = custom.getCcard();
-        objects[2] = custom.getCsex();
-        objects[3] = custom.getCtel();
-        objects[4] = custom.getCtel1();
+        objects[1] = custom.getCsex();
+        objects[2] = custom.getCtel();
+        objects[3] = custom.getCtel1();
+        objects[4] = custom.getCcard();
         return JdbcUtils.update(getAddsql(),objects);
     }
 }

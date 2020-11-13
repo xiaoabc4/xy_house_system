@@ -16,7 +16,7 @@ public class AddMybs extends SystemBaseController{
     MybsServices service =new MybsServices();
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        setAccessControlAllow(resp);
+        setAccessControlAllow(resp,req);
         //定义json数据变量
         String jsonStr = null;
         String hid =  req.getParameter("bs.hid");

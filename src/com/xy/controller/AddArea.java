@@ -16,7 +16,7 @@ public class AddArea extends SystemBaseController{
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //定义json数据变量
-        setAccessControlAllow(resp);
+        setAccessControlAllow(resp,req);
         String jsonStr = null;
         //获取参数值
         String name = req.getParameter("area.aname");

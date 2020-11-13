@@ -1,17 +1,17 @@
 package com.xy.service;
 
-import com.xy.dao.impl.DjrzDaoImpl;
-import com.xy.entity.Myarea;
-import com.xy.entity.Mydj;
+import com.xy.dao.impl.MyshouruDaoImpl;
+import com.xy.entity.Mybs;
+import com.xy.entity.Myshouru;
 
 import java.util.List;
 import java.util.Map;
 
-public class DjrzService implements BaseService{
-    DjrzDaoImpl dao = new DjrzDaoImpl();
+public class MyshouruService implements BaseService{
+    MyshouruDaoImpl dao = new MyshouruDaoImpl();
     @Override
     public Integer queryRecordsCount() {
-        return dao.queryRecordsTotal(dao.getQueryAllsqlCount(),null);
+        return  dao.queryRecordsTotal(dao.getQueryAllsqlCount(),null);
     }
 
     @Override
@@ -21,15 +21,11 @@ public class DjrzService implements BaseService{
         }else {
             return dao.add(map);
         }
-
     }
 
     @Override
     public List queryRecordsListDto(Object[] objects, Map pageMap, Class clazz) {
-        if (objects!=null && objects.length>=1){
-            return dao.queryBaseRecords(dao.getQueryAllsql()+" and D.hid = ?",objects,pageMap, Mydj.class);
-        }
-        return dao.queryBaseRecords(dao.getQueryAllsql(),null,pageMap, Mydj.class);
+       return dao.queryBaseRecords(dao.getQueryAllsql(),objects,pageMap, Myshouru.class);
     }
 
     @Override

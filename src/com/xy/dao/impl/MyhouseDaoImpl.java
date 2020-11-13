@@ -12,7 +12,7 @@ public class MyhouseDaoImpl extends SystemDao {
     private  static  String addsql=null;
 
     public String getAddsql(){
-        return addsql="insert  into myhouse(HID,SID,AID,HADDRESS,HFH,HHX,HMJ,HCX,HMONEY,HWF,HDX,HSF,HMQ,DKD,SKD,MKD,HJP,HREMARK,HIMG,HFLAG)" + " values (null,?,?,?,?,?,?,?,?,null,null,null,null,null,null,null,null,null,null,null)";
+        return addsql="insert  into myhouse(HID,SID,AID,HADDRESS,HFH,HHX,HMJ,HCX,HMONEY,HWF,HDX,HSF,HMQ,DKD,SKD,MKD,HJP,HREMARK,HIMG,HFLAG)" + " values (null,?,?,?,?,?,?,?,?,null,null,null,null,null,null,null,null,null,null,0)";
     }
 
     public static String getQueryAllsql() {
@@ -26,20 +26,7 @@ public class MyhouseDaoImpl extends SystemDao {
     }
 
     public boolean addlist(Myhouse myhouse){
-        /**
-         *
-         *     private  long aid;
-         *     private  long sid;
-         *     private  long hid;
-         *     private  String haddress;
-         *     private  String sname;
-         *     private  String aname;
-         *     private  String hfh;
-         *     private  String hhx;
-         *     private  String hmj;
-         *     private  String hcx;
-         *     private  float hmoney;
-         */
+
         int len  =8;
         Object[] objects = new Object[len];
      //   SID,AID,HADDRESS,HFH,HHX,HMJ,HCX,HMONEY

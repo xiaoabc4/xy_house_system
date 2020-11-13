@@ -23,7 +23,8 @@ public class Editpsw extends SystemBaseController{
     MyempService service = new MyempService();
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        setAccessControlAllow(resp);
+        setAccessControlAllow(resp,req);
+        int num = 0;
         Cookie[] cookies = req.getCookies();
         Map map = new HashMap();
         String jsonStr = null;
@@ -38,10 +39,11 @@ public class Editpsw extends SystemBaseController{
         if(cookies != null) {
             for(int i=0; i<cookies.length; i++){
                 cookie = cookies[i];
+             }
+           num =  Integer.valueOf(cookie.getValue());
+        }
 
-             }}
 
-        int num =  Integer.valueOf(cookie.getValue());
         System.out.println("num="+num);
         for (int i = 0; i <rs.size(); i++) {
             if ( rs.get(i).getEid()==num&&rs.get(i).getEpsw().equals(oldpsw)) {

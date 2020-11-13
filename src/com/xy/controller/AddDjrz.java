@@ -17,7 +17,7 @@ public class AddDjrz extends SystemBaseController{
     DjrzService service = new DjrzService();
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        setAccessControlAllow(resp);
+        setAccessControlAllow(resp,req);
         //定义json数据变量
         String jsonStr = null;
         String cid =  req.getParameter("cid");

@@ -26,8 +26,8 @@ public class Login extends SystemBaseController {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        setAccessControlAllow(resp);
-        Cookie cookie =null;
+        setAccessControlAllow(resp,req);
+         int jsonStr = 0;
         String name = req.getParameter("name");
         String psw = req.getParameter("psw");
         MyempService myempService = new MyempService();
@@ -38,18 +38,15 @@ public class Login extends SystemBaseController {
         for (int i = 0; i <rs.size(); i++) {
             if (rs.get(i).getEname().equals(name) && rs.get(i).getEpsw().equals(psw)) {
                 Integer empId = (int) rs.get(i).getEid();
-                cookie = new Cookie("loginCookie",String.valueOf(empId));
-                cookie.setPath("/");
-                cookie.setDomain("xy.com");
-                cookie.setMaxAge(30 * 60 * 60);
-                resp.addCookie(cookie);
-                resp.getWriter().write(JacksonUtils.obj2json(empId));
-
+                jsonStr = empId;
+                break;
             } else {
-               continue;
+                jsonStr = 0;
+                    
             }
-
         }
+        System.out.println(jsonStr);
+        resp.getWriter().write(JacksonUtils.obj2json(jsonStr));
 
 
 

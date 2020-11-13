@@ -16,7 +16,7 @@ public class AddMybiao extends SystemBaseController{
     MybiaoService service = new MybiaoService();
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        setAccessControlAllow(resp);
+        setAccessControlAllow(resp,req);
         //定义json数据变量
         String jsonStr = null;
         String skd =  req.getParameter("biao.skd");
